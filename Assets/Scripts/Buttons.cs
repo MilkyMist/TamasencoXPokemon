@@ -35,4 +35,9 @@ public class Buttons : MonoBehaviour
         homeScreen.SetActive(true);
         deckBuildingScreen.SetActive(false);
     }
+
+    public void QuitApplication()
+    {
+        Application.Quit();
+    }
 }

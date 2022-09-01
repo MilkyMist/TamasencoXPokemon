@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Decks : MonoBehaviour
 {
+    public string[] allTypes = { "Fire", "Fighting", "Dragon", "Lightning", "Grass", "Water", "Fairy", "Psychic", "Darkness", "Metal", "Colorless" };
+    public string[] allRarities = { "Amazing Rare", "Common", "LEGEND", "Promo", "Rare", "Rare ACE", "Rare BREAK", "Rare Holo", "Rare Holo EX", "Rare Holo GX", "Rare Holo LV.X", "Rare Holo Star", "Rare Holo V", "Rare Holo VMAX", "Rare Prime", "Rare Prism Star", "Rare Rainbow", "Rare Secret", "Rare Shining", "Rare Shiny", "Rare Shiny GX", "Rare Ultra", "Uncommon" };
+
     public GameObject cardTemplate;
     public Transform cardGrid;
     public static List<GameObject> cardList = new List<GameObject>();
@@ -105,6 +108,74 @@ public class Decks : MonoBehaviour
                 }
             }
             minHP += 1;
+        }
+    }
+
+    public void OrderByTypeAscending()
+    {
+        Array.Sort(allTypes, StringComparer.CurrentCultureIgnoreCase);
+
+        for (int j = 0; j < allTypes.Length; j++)
+        {
+            Debug.Log(allTypes[j]);
+            for (int i = 0; i < cardList.Count; i++)
+            {
+                if (cardList[i].GetComponent<Card>().type == allTypes[j])
+                {
+                    cardList[i].transform.SetAsLastSibling();
+                }
+            }
+        }
+    }
+
+    public void OrderByTypeDescending()
+    {
+        Array.Sort(allTypes, StringComparer.CurrentCultureIgnoreCase);
+
+        for (int j = 0; j < allTypes.Length; j++)
+        {
+            Debug.Log(allTypes[j]);
+            for (int i = 0; i < cardList.Count; i++)
+            {
+                if (cardList[i].GetComponent<Card>().type == allTypes[j])
+                {
+                    cardList[i].transform.SetAsFirstSibling();
+                }
+            }
+        }
+    }
+
+    public void OrderByRarityAscending()
+    {
+        Array.Sort(allRarities, StringComparer.CurrentCultureIgnoreCase);
+
+        for (int j = 0; j < allRarities.Length; j++)
+        {
+            Debug.Log(allRarities[j]);
+            for (int i = 0; i < cardList.Count; i++)
+            {
+                if (cardList[i].GetComponent<Card>().rarity == allRarities[j])
+                {
+                    cardList[i].transform.SetAsLastSibling();
+                }
+            }
+        }
+    }
+
+    public void OrderByRarityDescending()
+    {
+        Array.Sort(allRarities, StringComparer.CurrentCultureIgnoreCase);
+
+        for (int j = 0; j < allRarities.Length; j++)
+        {
+            Debug.Log(allRarities[j]);
+            for (int i = 0; i < cardList.Count; i++)
+            {
+                if (cardList[i].GetComponent<Card>().rarity == allRarities[j])
+                {
+                    cardList[i].transform.SetAsFirstSibling();
+                }
+            }
         }
     }
 }
