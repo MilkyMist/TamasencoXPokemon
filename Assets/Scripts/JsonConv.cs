@@ -34,7 +34,6 @@ public class JsonConv : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(GetRequest.pokemonCards);
         pokemonCardsJson = JsonUtility.FromJson<PokemonData>(GetRequest.pokemonCards);
         Debug.Log(pokemonCardsJson.data.Length);
 

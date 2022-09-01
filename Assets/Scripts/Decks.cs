@@ -26,20 +26,10 @@ public class Decks : MonoBehaviour
             cardList[i].GetComponent<Card>().type = JsonConv.pokemonCardsJson.data[i].types[0];
             cardList[i].GetComponent<Card>().rarity = JsonConv.pokemonCardsJson.data[i].rarity;
             cardList[i].name = JsonConv.pokemonCardsJson.data[i].name;
+
+            CanvasGroup cg = cardList[i].AddComponent(typeof(CanvasGroup)) as CanvasGroup;
             
         }
-
-        for (int i = 0; i < 50; i++)
-        {
-            deck1[i] = JsonConv.pokemonCardsJson.data[i];
-            Debug.Log(deck1[i].name);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public static void AssignArtwork(int i)

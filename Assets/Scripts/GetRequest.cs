@@ -14,7 +14,6 @@ public class GetRequest : MonoBehaviour
     {
         string requestURL = "https://api.pokemontcg.io/v2/cards?q=nationalPokedexNumbers:[1 TO 151]&select=name,rarity,hp,types,images";
         StartCoroutine(GetReq(requestURL));
-        print(pokemonCards);
     }
 
     IEnumerator GetReq(string uri)
